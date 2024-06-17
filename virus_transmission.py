@@ -5,8 +5,6 @@ Your task is to complete the incomplete function definition. so that it behaves 
 Do not run this file directly.
 Rather, call this function from main.py and run that file.
 """
-
-
 def calculate_infections(starting_number_infections, reproduction_rate, num_days):
     """
     Write a function that predicts the approximate number of infected individuals from a socially-transmitted viral infection after a given number of days.
@@ -17,3 +15,10 @@ def calculate_infections(starting_number_infections, reproduction_rate, num_days
     :param reproduction_rate: A floating point number indicating the rate of growth in the number of infections each day.
     :returns: The new number of infected individuals after the given number of days, rounded to the nearest integer.
     """
+    current_infections = starting_number_infections
+    for day in range(num_days):
+        new_infections = current_infections * reproduction_rate
+        current_infections = new_infections
+
+    return round(current_infections)
+
